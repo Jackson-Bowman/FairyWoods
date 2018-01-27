@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114507595088894174}
   - component: {fileID: 50094701438159638}
   - component: {fileID: 58190901512485294}
+  - component: {fileID: 58865814166683894}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -120,6 +121,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!58 &58865814166683894
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1157538460359354}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!114 &114507595088894174
 MonoBehaviour:
   m_ObjectHideFlags: 1
