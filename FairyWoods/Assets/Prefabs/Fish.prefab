@@ -9,15 +9,22 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
+<<<<<<< HEAD
   m_RootGameObject: {fileID: 1403784919379678}
   m_IsPrefabParent: 1
 --- !u!1 &1403784919379678
+=======
+  m_RootGameObject: {fileID: 1693047535278478}
+  m_IsPrefabParent: 1
+--- !u!1 &1693047535278478
+>>>>>>> jackson-dev
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 4144685887180568}
   - component: {fileID: 33235134935043822}
   - component: {fileID: 23086319219143048}
@@ -26,6 +33,13 @@ GameObject:
   - component: {fileID: 114905224361607974}
   - component: {fileID: 95983323720379558}
   - component: {fileID: 50756722334460404}
+=======
+  - component: {fileID: 4455294291652800}
+  - component: {fileID: 33436961112089984}
+  - component: {fileID: 65987796822003732}
+  - component: {fileID: 23749590991724678}
+  - component: {fileID: 114565571547814530}
+>>>>>>> jackson-dev
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -33,11 +47,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &4144685887180568
+=======
+--- !u!4 &4455294291652800
+>>>>>>> jackson-dev
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1403784919379678}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -6.25, z: 1}
@@ -47,11 +66,26 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!23 &23086319219143048
+=======
+  m_GameObject: {fileID: 1693047535278478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23749590991724678
+>>>>>>> jackson-dev
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1403784919379678}
+=======
+  m_GameObject: {fileID: 1693047535278478}
+>>>>>>> jackson-dev
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,11 +114,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
 --- !u!33 &33235134935043822
+=======
+--- !u!33 &33436961112089984
+>>>>>>> jackson-dev
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1403784919379678}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!50 &50756722334460404
@@ -155,19 +194,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114905224361607974
+=======
+  m_GameObject: {fileID: 1693047535278478}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65987796822003732
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1693047535278478}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114565571547814530
+>>>>>>> jackson-dev
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1403784919379678}
+=======
+  m_GameObject: {fileID: 1693047535278478}
+>>>>>>> jackson-dev
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73bba5cfe7b9740bbb87b1039e979d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   speed: 0
   turnFrame: 0
   bobDir: 1
   high: -6.75
   low: -7.25
   possessed: 0
+=======
+  speed: 2
+  turnFrame: 180
+>>>>>>> jackson-dev

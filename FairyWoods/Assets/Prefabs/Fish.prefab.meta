@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 7c400ea00fd296e4bb0721d4527d0bd5
 timeCreated: 1517088538
+=======
+guid: 69717f987ba7847c49999ef92a52a2f3
+timeCreated: 1517065283
+>>>>>>> jackson-dev
 licenseType: Free
 NativeFormatImporter:
   externalObjects: {}

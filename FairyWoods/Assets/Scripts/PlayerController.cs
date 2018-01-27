@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
-	private Rigidbody2D rb;
+	private Rigidbody rb;
 	private Animator anim;
 	public string mode;
     public GameObject targetAnimal, possesedAnimal;
 
 	void Start() {
-		rb = GetComponent<Rigidbody2D> ();
+		rb = GetComponent<Rigidbody> ();
 
 		//anim = transform.GetComponentInChildren<Animator> ();
 		//anim = GetComponent<Animator>();
