@@ -41,11 +41,11 @@ public class PlayerController : MonoBehaviour {
                 {
                     if (possesedAnimal != null) {
                         if (possesedAnimal.GetComponent<SquirrelControlScript>()) {
-                            possesedAnimal.GetComponent<SquirrelControlScript>().possesed = false;
+                            possesedAnimal.GetComponent<SquirrelControlScript>().possessed = false;
                         }
                         if (possesedAnimal.GetComponent<OwlControlScript>())
                         {
-                            possesedAnimal.GetComponent<OwlControlScript>().possesed = false;
+                            possesedAnimal.GetComponent<OwlControlScript>().possessed = false;
                         }
                         if (possesedAnimal.GetComponent<FishBehavior>())
                         {
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour {
                     }
                     possesedAnimal = targetAnimal;
                     targetAnimal = null;
-                    possesedAnimal.GetComponent<SquirrelControlScript>().possesed = true;
+                    possesedAnimal.GetComponent<SquirrelControlScript>().possessed = true;
                     transform.position = new Vector2(0, 500);
                     rb.velocity = Vector2.zero;
                     rb.isKinematic = true;
@@ -65,20 +65,21 @@ public class PlayerController : MonoBehaviour {
                     {
                         if (possesedAnimal.GetComponent<SquirrelControlScript>())
                         {
-                            possesedAnimal.GetComponent<SquirrelControlScript>().possesed = false;
+                            possesedAnimal.GetComponent<SquirrelControlScript>().possessed = false;
                         }
                         if (possesedAnimal.GetComponent<OwlControlScript>())
                         {
-                            possesedAnimal.GetComponent<OwlControlScript>().possesed = false;
+                            possesedAnimal.GetComponent<OwlControlScript>().possessed = false;
                         }
                         if (possesedAnimal.GetComponent<FishBehavior>())
                         {
+                            possesedAnimal.GetComponent<FishBehavior>().possessed = false;
                         }
                         possesedAnimal = null;
                     }
                     possesedAnimal = targetAnimal;
                     targetAnimal = null;
-                    possesedAnimal.GetComponent<OwlControlScript>().possesed = true;
+                    possesedAnimal.GetComponent<OwlControlScript>().possessed = true;
                     transform.position = new Vector2(0, 500);
                     rb.velocity = Vector2.zero;
                     rb.isKinematic = true;
@@ -89,17 +90,24 @@ public class PlayerController : MonoBehaviour {
                     {
                         if (possesedAnimal.GetComponent<SquirrelControlScript>())
                         {
-                            possesedAnimal.GetComponent<SquirrelControlScript>().possesed = false;
+                            possesedAnimal.GetComponent<SquirrelControlScript>().possessed = false;
                         }
                         if (possesedAnimal.GetComponent<OwlControlScript>())
                         {
-                            possesedAnimal.GetComponent<OwlControlScript>().possesed = false;
+                            possesedAnimal.GetComponent<OwlControlScript>().possessed = false;
                         }
                         if (possesedAnimal.GetComponent<FishBehavior>())
                         {
+                            possesedAnimal.GetComponent<FishBehavior>().possessed = false;
                         }
                         possesedAnimal = null;
                     }
+                    possesedAnimal = targetAnimal;
+                    targetAnimal = null;
+                    possesedAnimal.GetComponent<FishBehavior>().possessed = true;
+                    transform.position = new Vector2(0, 500);
+                    rb.velocity = Vector2.zero;
+                    rb.isKinematic = true;
                 }
             }
         }
@@ -108,7 +116,7 @@ public class PlayerController : MonoBehaviour {
             if (possesedAnimal != null) {
                 if (possesedAnimal.GetComponent<SquirrelControlScript>())
                 {
-                    possesedAnimal.GetComponent<SquirrelControlScript>().possesed = false;
+                    possesedAnimal.GetComponent<SquirrelControlScript>().possessed = false;
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
                     possesedAnimal = null;
                     rb.isKinematic = false;
@@ -116,7 +124,7 @@ public class PlayerController : MonoBehaviour {
                 }
                 if (possesedAnimal.GetComponent<OwlControlScript>())
                 {
-                    possesedAnimal.GetComponent<OwlControlScript>().possesed = false;
+                    possesedAnimal.GetComponent<OwlControlScript>().possessed = false;
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
                     possesedAnimal = null;
                     rb.isKinematic = false;
@@ -124,7 +132,11 @@ public class PlayerController : MonoBehaviour {
                 }
                 if (possesedAnimal.GetComponent<FishBehavior>())
                 {
-
+                    possesedAnimal.GetComponent<FishBehavior>().possessed = false;
+                    transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
+                    possesedAnimal = null;
+                    rb.isKinematic = false;
+                    rb.AddForce(new Vector2(-50, 300));
                 }
             }
         }

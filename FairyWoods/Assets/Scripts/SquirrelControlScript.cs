@@ -5,7 +5,7 @@ using UnityEngine;
 public class SquirrelControlScript : MonoBehaviour {
 
     GameObject currentTree;
-    public bool possesed;
+    public bool possessed;
 	// Use this for initialization
 	void Start () {
         currentTree = null;
@@ -13,7 +13,7 @@ public class SquirrelControlScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (possesed)
+        if (possessed)
         {
             Camera.main.transform.position = transform.position - new Vector3(0, 0, 10);
             FindObjectOfType<PlayerController>().possesedAnimal = gameObject;
@@ -51,7 +51,7 @@ public class SquirrelControlScript : MonoBehaviour {
 
     public void OnTriggerStay2D(Collider2D other)
     {
-        if (possesed)
+        if (possessed)
         {
             if (other.gameObject.name.Contains("Tree")) {
                 Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), other);

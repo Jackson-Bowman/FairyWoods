@@ -5,7 +5,7 @@ using UnityEngine;
 public class OwlControlScript : MonoBehaviour {
     public float jumpPeak;
     public bool gliding;
-    public bool possesed;
+    public bool possessed;
 	// Use this for initialization
 	void Start () {
         jumpPeak = transform.position.y + 4.9f;
@@ -13,7 +13,7 @@ public class OwlControlScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (possesed)
+        if (possessed)
         {
             FindObjectOfType<PlayerController>().possesedAnimal = gameObject;
             Camera.main.transform.position = transform.position - new Vector3(0, 0, 10);
@@ -39,7 +39,7 @@ public class OwlControlScript : MonoBehaviour {
 	}
 
     void OnCollisionEnter2D(Collision2D col) {
-        if (possesed)
+        if (possessed)
         {
             GetComponent<Rigidbody2D>().gravityScale = 1f;
             gliding = false;
@@ -48,7 +48,7 @@ public class OwlControlScript : MonoBehaviour {
     }
     void OnCollisionStay2D (Collision2D col)
     {
-        if (possesed)
+        if (possessed)
         {
             GetComponent<Rigidbody2D>().gravityScale = 1f;
             gliding = false;
@@ -58,7 +58,7 @@ public class OwlControlScript : MonoBehaviour {
 
     public void OnTriggerStay2D(Collider2D other)
     {
-        if (possesed)
+        if (possessed)
         {
             if (other.gameObject.name.Contains("Owl") && other.gameObject.GetComponent<OwlControlScript>() && other.gameObject != this.gameObject)
             {
