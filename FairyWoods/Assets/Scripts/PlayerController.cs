@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
-	private Rigidbody rb;
+	private Rigidbody2D rb;
 	private Animator anim;
 	public string mode;
     public GameObject targetAnimal, possesedAnimal;
+	private GameObject[] animals;
 
 	void Start() {
-		rb = GetComponent<Rigidbody> ();
-
-		//anim = transform.GetComponentInChildren<Animator> ();
-		//anim = GetComponent<Animator>();
-		//anim.enabled = false;
-		//mode = "fairy";
+		rb = GetComponent<Rigidbody2D> ();
+		animals = GameObject.FindGameObjectsWithTag ("Animal");
+		foreach (GameObject animal in animals) {
+			Physics2D.IgnoreCollision (GetComponent<Collider2D> (), animal.GetComponent<Collider2D>());
+		}
 	}
 
 	void FixedUpdate() {

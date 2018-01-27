@@ -23,6 +23,7 @@ public class SquirrelControlScript : MonoBehaviour {
                 if (Input.GetKey(KeyCode.A))
                 {
                     transform.Translate(new Vector3(-0.1f, 0, 0));
+
                 }
                 if (Input.GetKey(KeyCode.D))
                 {

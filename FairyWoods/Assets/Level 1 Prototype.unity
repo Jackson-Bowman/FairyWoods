@@ -122,8 +122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 149425061}
   - component: {fileID: 149425060}
-  - component: {fileID: 149425059}
   - component: {fileID: 149425058}
+  - component: {fileID: 149425059}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -165,18 +165,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &149425059
-BoxCollider:
+--- !u!61 &149425059
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 149425057}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!33 &149425060
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -208,7 +221,6 @@ GameObject:
   - component: {fileID: 167901564}
   - component: {fileID: 167901563}
   - component: {fileID: 167901562}
-  - component: {fileID: 167901566}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -279,18 +291,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &167901566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 167901561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52db3a8b3c694e68a5e3e268d72c524, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 971503404}
 --- !u!1 &328129313
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,8 +365,8 @@ GameObject:
   m_Component:
   - component: {fileID: 892529329}
   - component: {fileID: 892529328}
-  - component: {fileID: 892529327}
   - component: {fileID: 892529326}
+  - component: {fileID: 892529327}
   m_Layer: 0
   m_Name: Hill
   m_TagString: Untagged
@@ -408,18 +408,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &892529327
-BoxCollider:
+--- !u!61 &892529327
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 892529325}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!33 &892529328
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -449,8 +462,8 @@ GameObject:
   m_Component:
   - component: {fileID: 929399343}
   - component: {fileID: 929399342}
-  - component: {fileID: 929399341}
   - component: {fileID: 929399340}
+  - component: {fileID: 929399341}
   m_Layer: 0
   m_Name: ramp
   m_TagString: Untagged
@@ -492,18 +505,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &929399341
-BoxCollider:
+--- !u!61 &929399341
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 929399339}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000001, y: 1}
+  m_EdgeRadius: 0
 --- !u!33 &929399342
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -529,6 +555,56 @@ GameObject:
   m_PrefabParentObject: {fileID: 1439384429861042, guid: 216f96decf7f94d608f1a1f18fb54590,
     type: 2}
   m_PrefabInternal: {fileID: 1726127723}
+--- !u!50 &971503405
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 971503404}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &971503408
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 971503404}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!58 &971503411
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 971503404}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1001 &1088446157
 Prefab:
   m_ObjectHideFlags: 0
@@ -727,8 +803,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1332302998}
   - component: {fileID: 1332303001}
-  - component: {fileID: 1332303000}
   - component: {fileID: 1332302999}
+  - component: {fileID: 1332303000}
   m_Layer: 0
   m_Name: Ocean Water
   m_TagString: Untagged
@@ -783,18 +859,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1332303000
-BoxCollider:
+--- !u!61 &1332303000
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1332302997}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000059604645, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000001, y: 1}
+  m_EdgeRadius: 0
 --- !u!33 &1332303001
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -811,8 +900,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1438499586}
   - component: {fileID: 1438499585}
-  - component: {fileID: 1438499584}
   - component: {fileID: 1438499583}
+  - component: {fileID: 1438499584}
   m_Layer: 0
   m_Name: finish
   m_TagString: Untagged
@@ -854,18 +943,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1438499584
-BoxCollider:
+--- !u!61 &1438499584
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1438499582}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!33 &1438499585
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -929,6 +1031,14 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 76c97085171424c899436062b1881716, type: 2}
+    - target: {fileID: 400054, guid: 607723cf22f5b445b8f53013baaa548b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100052, guid: 607723cf22f5b445b8f53013baaa548b, type: 3}
+      propertyPath: m_TagString
+      value: Animal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 607723cf22f5b445b8f53013baaa548b, type: 3}
   m_IsPrefabParent: 0
@@ -941,8 +1051,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1482613517}
   - component: {fileID: 1482613520}
-  - component: {fileID: 1482613519}
   - component: {fileID: 1482613518}
+  - component: {fileID: 1482613519}
   m_Layer: 0
   m_Name: Ocean Floor
   m_TagString: Untagged
@@ -997,18 +1107,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1482613519
-BoxCollider:
+--- !u!61 &1482613519
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1482613516}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000059604645, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000001, y: 1}
+  m_EdgeRadius: 0
 --- !u!33 &1482613520
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1103,7 +1226,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 58130377820041688, guid: 216f96decf7f94d608f1a1f18fb54590, type: 2}
+    - {fileID: 135859849770099422, guid: 216f96decf7f94d608f1a1f18fb54590, type: 2}
+    - {fileID: 54060534157677716, guid: 216f96decf7f94d608f1a1f18fb54590, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 216f96decf7f94d608f1a1f18fb54590, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1846693279
@@ -1136,6 +1262,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1885020427 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100052, guid: 607723cf22f5b445b8f53013baaa548b, type: 3}
+  m_PrefabInternal: {fileID: 1466417155}
+--- !u!58 &1885020430
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1885020427}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1885020431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1885020427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45609e7c83eb82e46a877792519da009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possessed: 0
+--- !u!50 &1885020432
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1885020427}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1964656054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,8 +1322,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1964656058}
   - component: {fileID: 1964656057}
-  - component: {fileID: 1964656056}
   - component: {fileID: 1964656055}
+  - component: {fileID: 1964656056}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -1188,18 +1365,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1964656056
-BoxCollider:
+--- !u!61 &1964656056
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1964656054}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!33 &1964656057
 MeshFilter:
   m_ObjectHideFlags: 0
