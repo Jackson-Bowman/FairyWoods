@@ -38,7 +38,7 @@ public class SquirrelControlScript : MonoBehaviour {
             {
                 transform.Translate(new Vector3(0, -0.1f, 0));
             }
-            transform.position = new Vector2(currentTree.transform.position.x - 0.5f, transform.position.y);
+            transform.position = new Vector2(currentTree.transform.position.x, transform.position.y);
         }
     }
 
