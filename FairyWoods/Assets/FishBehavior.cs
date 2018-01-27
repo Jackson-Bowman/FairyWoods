@@ -11,11 +11,15 @@ public class FishBehavior : MonoBehaviour {
     public bool bobDir = true;
     public float high, low;
     public bool possessed;
+	private int moveFrame;
 
 	// Use this for initialization
 	void Start () {
         possessed = false;
 		currentFrame = 0;
+		direction = Vector3.left;
+		moveFrame = 0;
+
 	}
 	
 	// Update is called once per frame
@@ -36,6 +40,7 @@ public class FishBehavior : MonoBehaviour {
                 bobDir = true;
             }
         }
+
         if (possessed) {
             Camera.main.transform.position = transform.position - new Vector3(0, 0, 10);
             if (Input.GetKey(KeyCode.A)) {
@@ -45,7 +50,15 @@ public class FishBehavior : MonoBehaviour {
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(5, 0));
             }
-        }
+		} else {
+			if (moveFrame < turnFrame) {
+				transform.Translate (direction * speed * Time.deltaTime);
+				moveFrame++;
+			} else {
+				moveFrame = 0;
+				direction = -direction;
+			}
+		}
     }
     public void OnTriggerStay2D(Collider2D other)
     {
