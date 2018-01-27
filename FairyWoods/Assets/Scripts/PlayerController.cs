@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float speed;
-	private Rigidbody rb;
+	private Rigidbody2D rb;
 	private Animator anim;
 	public string mode;
 
 	void Start() {
-		rb = GetComponent<Rigidbody> ();
+		rb = GetComponent<Rigidbody2D> ();
 
 		//anim = transform.GetComponentInChildren<Animator> ();
 		//anim = GetComponent<Animator>();
