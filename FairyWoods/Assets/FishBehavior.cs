@@ -73,16 +73,19 @@ public class FishBehavior : MonoBehaviour {
         }
         if (other.gameObject.name.Contains("Player"))
         {
-            other.transform.GetChild(0).gameObject.GetComponent<PlayerController>().targetAnimal = gameObject;
-            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().highlightedMat;
+            other.gameObject.GetComponent<PlayerController>().targetAnimal = gameObject;
+            transform.GetChild(0).GetChild(1).gameObject.GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().highlightedMat;
         }
     }
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.name.Contains("Player"))
         {
-            other.transform.GetChild(0).gameObject.GetComponent<PlayerController>().targetAnimal = null;
-            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().defaultMat;
+            other.gameObject.GetComponent<PlayerController>().targetAnimal = null;
+            if (!possessed)
+            {
+                transform.GetChild(0).GetChild(1).gameObject.GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().fishMat02;
+            }
         }
     }
 }
