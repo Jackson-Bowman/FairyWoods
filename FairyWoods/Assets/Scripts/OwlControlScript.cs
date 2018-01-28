@@ -106,6 +106,12 @@ public class OwlControlScript : MonoBehaviour {
             other.gameObject.GetComponent<PlayerController>().targetAnimal = gameObject;
             transform.GetChild(1).gameObject.GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().highlightedMat;
         }
+		if (other.gameObject.CompareTag("Water")) {
+			GameObject spawn = GameObject.FindGameObjectWithTag ("Spawn Point");
+			if (spawn != null) {
+				transform.position = spawn.transform.position;
+			}
+		}
     }
     public void OnTriggerExit2D(Collider2D other)
     {

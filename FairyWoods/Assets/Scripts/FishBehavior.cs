@@ -30,29 +30,30 @@ public class FishBehavior : MonoBehaviour {
             }
             Camera.main.transform.position = transform.position - new Vector3(0, 0, 10);
             if (Input.GetKey(KeyCode.A)) {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(-5, 0));
+				transform.Translate (Vector3.left * speed * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.D))
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(5, 0));
+				transform.Translate (Vector3.right * speed * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.W))
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 5));
+				transform.Translate (Vector3.up * speed * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.S))
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -5));
+				transform.Translate (Vector3.down * speed * Time.deltaTime);
             }
-        } else {
-			if (moveFrame < turnFrame) {
-				transform.Translate (direction * speed * Time.deltaTime);
-				moveFrame++;
-			} else {
-				moveFrame = 0;
-				direction = -direction;
-			}
-		}
+        } 
+		//else {
+//			if (moveFrame < turnFrame) {
+//				transform.Translate (direction * speed * Time.deltaTime);
+//				moveFrame++;
+//			} else {
+//				moveFrame = 0;
+//				direction = -direction;
+//			}
+//		}
     }
     public void OnTriggerStay2D(Collider2D other)
     {

@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         }
         if (!rb.isKinematic)
         {
-            Camera.main.transform.position = transform.position - new Vector3(0, -4, 10);
+            Camera.main.transform.position = transform.position - new Vector3(0, -2, 10);
             float moveHorizontal = Input.GetAxis("Horizontal");
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
 
@@ -174,6 +174,11 @@ public class PlayerController : MonoBehaviour
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
                     rb.isKinematic = false;
                     rb.AddForce(new Vector2(-50, 300));
+					GameObject spawn = GameObject.FindGameObjectWithTag ("Spawn Point");
+					if (spawn != null) {
+						possesedAnimal.transform.position = spawn.transform.position;
+					}
+					possesedAnimal.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
                 }
                 if (possesedAnimal.GetComponent<FishBehavior>())
                 {
@@ -203,7 +208,17 @@ public class PlayerController : MonoBehaviour
 //            Physics2D.IgnoreCollision(GetComponents<CircleCollider2D>()[1], collision);
 //            rb.AddForce(new Vector2(0, -(Mathf.Abs(transform.position.y) - 4f) * Physics2D.gravity.y));
 //        }
+		if (collision.gameObject.CompareTag("Water")) {
+			GameObject spawn = GameObject.FindGameObjectWithTag ("Spawn Point");
+			if (spawn != null) {
+				transform.position = spawn.transform.position;
+			}
+		}
     }
+
+	void OnTriggerEnter2d(Collider2D collider) {
+		
+	}
 
     public void Continue()
     {

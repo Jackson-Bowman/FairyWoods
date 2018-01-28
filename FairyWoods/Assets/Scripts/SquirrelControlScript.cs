@@ -93,7 +93,9 @@ public class SquirrelControlScript : MonoBehaviour {
                     rb.AddForce(new Vector2(100, 200));
 				}
             }
-        }
+		} else {
+			anim.Play ("Idle");
+		}
     }
 
 	void OnCollisionEnter2D(Collision2D collision) {
