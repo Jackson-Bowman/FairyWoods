@@ -7,12 +7,15 @@ public class OwlControlScript : MonoBehaviour {
     public bool gliding;
     public bool possessed;
     public float cameraLerp;
+	public float jumpSpeed;
+	public float glideSpeed;
     Animator anim;
 	// Use this for initialization
 	void Start () {
         cameraLerp = 0;
         jumpPeak = transform.position.y + 3.7f;
         anim = GetComponent<Animator>();
+
 	}
 	
 	// Update is called once per frame
@@ -40,16 +43,18 @@ public class OwlControlScript : MonoBehaviour {
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 500));
-                gliding = true;
+				if (!gliding) {
+					GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, jumpSpeed));
+					gliding = true;
+				}
             }
             if (Input.GetKey(KeyCode.A) && gliding)
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 0));
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 0) * glideSpeed);
             }
             if (Input.GetKey(KeyCode.D) && gliding)
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 0));
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 0) * glideSpeed);
             }
             if (transform.position.y >= jumpPeak)
             {
