@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
     void FairyUpdate()
     {
-        Debug.Log(paused);
         if (paused)
         {
             pauseUI.SetActive(true);
@@ -85,6 +84,7 @@ public class PlayerController : MonoBehaviour
                         }
                         if (possesedAnimal.GetComponent<FishBehavior>())
                         {
+                            possesedAnimal.GetComponent<OwlControlScript>().possessed = false;
                         }
                         possesedAnimal = null;
                     }
@@ -141,6 +141,7 @@ public class PlayerController : MonoBehaviour
                     transform.position = new Vector2(0, 500);
                     rb.velocity = Vector2.zero;
                     rb.isKinematic = true;
+                    possesedAnimal.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 }
                 targetAnimal = null;
             }
@@ -154,7 +155,7 @@ public class PlayerController : MonoBehaviour
                     possesedAnimal.GetComponent<SquirrelControlScript>().possessed = false;
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
                     rb.isKinematic = false;
-                    rb.AddForce(new Vector2(-50, 300));
+                    rb.AddForce(new Vector2(100, 300));
                 }
                 if (possesedAnimal.GetComponent<OwlControlScript>())
                 {
@@ -165,6 +166,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (possesedAnimal.GetComponent<FishBehavior>())
                 {
+                    possesedAnimal.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                     possesedAnimal.GetComponent<FishBehavior>().possessed = false;
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
                     rb.isKinematic = false;

@@ -24,6 +24,7 @@ public class FishBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
         if (bobDir) {
             transform.position = new Vector2(transform.position.x, Mathf.Lerp(low, high, currentFrame));
             currentFrame += 0.033f;
@@ -39,9 +40,14 @@ public class FishBehavior : MonoBehaviour {
             {
                 bobDir = true;
             }
-        }
+        }*/
 
         if (possessed) {
+            if (transform.position.y >= 2.4)
+            {
+                transform.position = new Vector2(transform.position.x, 2.3f);
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
             Camera.main.transform.position = transform.position - new Vector3(0, 0, 10);
             if (Input.GetKey(KeyCode.A)) {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(-5, 0));
@@ -50,7 +56,15 @@ public class FishBehavior : MonoBehaviour {
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(5, 0));
             }
-		} else {
+            if (Input.GetKey(KeyCode.W))
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 5));
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -5));
+            }
+        } else {
 			if (moveFrame < turnFrame) {
 				transform.Translate (direction * speed * Time.deltaTime);
 				moveFrame++;
@@ -80,6 +94,13 @@ public class FishBehavior : MonoBehaviour {
         if (other.gameObject.name.Contains("Player"))
         {
             other.gameObject.GetComponent<PlayerController>().targetAnimal = gameObject;
+        }
+    }
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.name.Contains("Player"))
+        {
+            other.gameObject.GetComponent<PlayerController>().targetAnimal = null;
         }
     }
 }

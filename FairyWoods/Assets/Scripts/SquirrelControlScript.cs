@@ -70,13 +70,13 @@ public class SquirrelControlScript : MonoBehaviour {
             else
             {
 				rb.gravityScale = 0;
-                if (Input.GetKey(KeyCode.W) && transform.position.y <= 6)
+                if (Input.GetKey(KeyCode.W) && transform.position.y <= 10)
                 {
 					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, 0, -90);
 					anim.Play ("Climb_Cycle");
                     transform.Translate(new Vector3(0, 0.1f, 0));
 				}
-                if (Input.GetKey(KeyCode.S) && transform.position.y >= -3)
+                if (Input.GetKey(KeyCode.S) && transform.position.y >= 2)
                 {
 					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, 0, -90);
 					anim.Play ("Climb_Cycle");
@@ -90,6 +90,7 @@ public class SquirrelControlScript : MonoBehaviour {
                 transform.position = new Vector2(currentTree.transform.position.x, transform.position.y);
 				if (Input.GetKeyDown(KeyCode.Space)) {
 					climbing = false;
+                    rb.AddForce(new Vector2(100, 200));
 				}
             }
         }
@@ -144,4 +145,10 @@ public class SquirrelControlScript : MonoBehaviour {
 			other.gameObject.GetComponent<PlayerController> ().targetAnimal = gameObject;
 		}
 	}
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.name.Contains("Player")) {
+            other.gameObject.GetComponent<PlayerController>().targetAnimal = null;
+        }
+    }
 }
