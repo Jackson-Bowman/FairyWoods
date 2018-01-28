@@ -72,12 +72,21 @@ public class SquirrelControlScript : MonoBehaviour {
 				rb.gravityScale = 0;
                 if (Input.GetKey(KeyCode.W) && transform.position.y <= 6)
                 {
+					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, 0, -90);
+					anim.Play ("Climb_Cycle");
                     transform.Translate(new Vector3(0, 0.1f, 0));
-                }
+				}
                 if (Input.GetKey(KeyCode.S) && transform.position.y >= -3)
                 {
+					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, 0, -90);
+					anim.Play ("Climb_Cycle");
                     transform.Translate(new Vector3(0, -0.1f, 0));
-                }
+				} 
+				if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S)){
+					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (0, 180, 0);
+					anim.Play ("Wait");
+
+				}
                 transform.position = new Vector2(currentTree.transform.position.x, transform.position.y);
 				if (Input.GetKeyDown(KeyCode.Space)) {
 					climbing = false;
@@ -114,6 +123,9 @@ public class SquirrelControlScript : MonoBehaviour {
 					currentTree = other.gameObject;
 					climbing = true;
 					rb.velocity = Vector2.zero;
+					anim.Play ("Wait");
+					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (0, 180, 0);
+
 				} else {
 					currentTree = null;
 				}
