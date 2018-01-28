@@ -11,6 +11,7 @@ public class SquirrelControlScript : MonoBehaviour {
 	private Rigidbody2D rb;
 	private bool jumping;
 	private bool climbing;
+
 	// Use this for initialization
 	void Start () {
         currentTree = null;
@@ -49,11 +50,19 @@ public class SquirrelControlScript : MonoBehaviour {
 				if (Input.GetAxis ("Horizontal") > 0) {
 					
 					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, -90, 0);
-					anim.Play ("Run_Cycle");
+					if (jumping) {
+						anim.Play ("Jump");
+					} else {
+						anim.Play ("Run_Cycle");
+					}
 				} else if (Input.GetAxis ("Horizontal") < 0) {
 
 					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, 90, 0);
-					anim.Play ("Run_Cycle");
+					if (jumping) {
+						anim.Play ("Jump");
+					} else {
+						anim.Play ("Run_Cycle");
+					}
 				} else {
 					anim.Play ("Wait");
 				}
