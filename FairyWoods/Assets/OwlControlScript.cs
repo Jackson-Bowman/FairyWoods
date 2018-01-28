@@ -99,7 +99,7 @@ public class OwlControlScript : MonoBehaviour {
         if (other.gameObject.name.Contains("Player"))
         {
             other.gameObject.GetComponent<PlayerController>().targetAnimal = gameObject;
-            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().highlightedMat;
+            transform.GetChild(1).gameObject.GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().highlightedMat;
         }
     }
     public void OnTriggerExit2D(Collider2D other)
@@ -107,7 +107,10 @@ public class OwlControlScript : MonoBehaviour {
         if (other.gameObject.name.Contains("Player"))
         {
             other.gameObject.GetComponent<PlayerController>().targetAnimal = null;
-            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().defaultMat;
+            if (!possessed)
+            {
+                transform.GetChild(1).gameObject.GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().defaultMat;
+            }
         }
     }
 }

@@ -142,15 +142,22 @@ public class SquirrelControlScript : MonoBehaviour {
 			}
 		}
 		if (other.gameObject.name.Contains ("Player")) {
-			other.transform.GetChild(0).gameObject.GetComponent<PlayerController> ().targetAnimal = gameObject;
-            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().highlightedMat;
+			other.gameObject.GetComponent<PlayerController> ().targetAnimal = gameObject;
+            Material[] newMat = transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>().materials;
+            newMat[1] = other.gameObject.GetComponent<PlayerController>().highlightedMat;
+            transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>().materials = newMat;
         }
 	}
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.name.Contains("Player")) {
-            other.transform.GetChild(0).gameObject.GetComponent<PlayerController>().targetAnimal = null;
-            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().defaultMat;
+            other.gameObject.GetComponent<PlayerController>().targetAnimal = null;
+            if (!possessed)
+            {
+                Material[] newMat = transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>().materials;
+                newMat[1] = other.gameObject.GetComponent<PlayerController>().redFurMat;
+                transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>().materials = newMat;
+            }
         }
     }
 }

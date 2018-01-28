@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private GameObject[] animals;
     public bool paused;
     public GameObject pauseUI;
-    public Material highlightedMat, possessedMat, defaultMat;
+    public Material highlightedMat, possessedMat, defaultMat, fishMat01, fishMat02, fishMat03, fishMat04, fishMat05, redFurMat;
 
     void Start()
     {
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         }
         if (!rb.isKinematic)
         {
-            Camera.main.transform.position = transform.position - new Vector3(0, 0, 10);
+            Camera.main.transform.position = transform.position - new Vector3(0, -4, 10);
             float moveHorizontal = Input.GetAxis("Horizontal");
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
 
@@ -91,6 +91,9 @@ public class PlayerController : MonoBehaviour
                     }
                     possesedAnimal = targetAnimal;
                     possesedAnimal.GetComponent<SquirrelControlScript>().possessed = true;
+                    Material[] newMat = possesedAnimal.transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>().materials;
+                    newMat[1] = possessedMat;
+                    possesedAnimal.transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>().materials = newMat;
                     transform.position = new Vector2(0, 500);
                     rb.velocity = Vector2.zero;
                     rb.isKinematic = true;
@@ -115,6 +118,7 @@ public class PlayerController : MonoBehaviour
                     }
                     possesedAnimal = targetAnimal;
                     possesedAnimal.GetComponent<OwlControlScript>().possessed = true;
+                    possesedAnimal.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = possessedMat;
                     transform.position = new Vector2(0, 500);
                     rb.velocity = Vector2.zero;
                     rb.isKinematic = true;
@@ -139,9 +143,11 @@ public class PlayerController : MonoBehaviour
                     }
                     possesedAnimal = targetAnimal;
                     possesedAnimal.GetComponent<FishBehavior>().possessed = true;
+                    possesedAnimal.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().material = possessedMat;
                     transform.position = new Vector2(0, 500);
                     rb.velocity = Vector2.zero;
                     rb.isKinematic = true;
+                    possesedAnimal.GetComponent<Rigidbody2D>().gravityScale = 0;
                     possesedAnimal.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 }
                 targetAnimal = null;
@@ -154,6 +160,9 @@ public class PlayerController : MonoBehaviour
                 if (possesedAnimal.GetComponent<SquirrelControlScript>())
                 {
                     possesedAnimal.GetComponent<SquirrelControlScript>().possessed = false;
+                    Material[] newMat = possesedAnimal.transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>().materials;
+                    newMat[1] = redFurMat;
+                    possesedAnimal.transform.GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer>().materials = newMat;
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
                     rb.isKinematic = false;
                     rb.AddForce(new Vector2(100, 300));
@@ -161,14 +170,17 @@ public class PlayerController : MonoBehaviour
                 if (possesedAnimal.GetComponent<OwlControlScript>())
                 {
                     possesedAnimal.GetComponent<OwlControlScript>().possessed = false;
+                    possesedAnimal.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material = defaultMat;
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
                     rb.isKinematic = false;
                     rb.AddForce(new Vector2(-50, 300));
                 }
                 if (possesedAnimal.GetComponent<FishBehavior>())
                 {
-                    possesedAnimal.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    //possesedAnimal.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    possesedAnimal.GetComponent<Rigidbody2D>().gravityScale = 1;
                     possesedAnimal.GetComponent<FishBehavior>().possessed = false;
+                    possesedAnimal.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().material = defaultMat;
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
                     rb.isKinematic = false;
                     rb.AddForce(new Vector2(-50, 300));
@@ -177,6 +189,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Contains("Rock")) {
+            rb.velocity = Vector2.zero;
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
