@@ -6,9 +6,14 @@ public class SquirrelControlScript : MonoBehaviour {
 
     GameObject currentTree;
     public bool possessed;
+	private Animator anim;
+	public float speed;
+	private Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
         currentTree = null;
+		anim = GetComponent<Animator> ();
+		rb = GetComponent<Rigidbody2D> ();
 	}
 	
 	// Update is called once per frame
@@ -19,24 +24,35 @@ public class SquirrelControlScript : MonoBehaviour {
             FindObjectOfType<PlayerController>().possesedAnimal = gameObject;
             if (currentTree == null)
             {
-                GetComponent<Rigidbody2D>().gravityScale = 1;
+				rb.gravityScale = 1;
                 if (Input.GetKey(KeyCode.A))
                 {
-                    transform.Translate(new Vector3(-0.1f, 0, 0));
+                    transform.Translate(new Vector3(-speed, 0, 0));
 
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
-                    transform.Translate(new Vector3(0.1f, 0, 0));
+                    transform.Translate(new Vector3(speed, 0, 0));
                 }
                 if (Input.GetKeyDown(KeyCode.W))
                 {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 400));
+					rb.AddForce(new Vector2(0, 400));
                 }
+				if (Input.GetAxis ("Horizontal") > 0) {
+					
+					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, -90, 0);
+					anim.Play ("Run_Cycle");
+				} else if (Input.GetAxis ("Horizontal") < 0) {
+
+					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, 90, 0);
+					anim.Play ("Run_Cycle");
+				} else {
+					anim.Play ("Wait");
+				}
             }
             else
             {
-                GetComponent<Rigidbody2D>().gravityScale = 0;
+				rb.gravityScale = 0;
                 if (Input.GetKey(KeyCode.W) && transform.position.y <= 6)
                 {
                     transform.Translate(new Vector3(0, 0.1f, 0));
@@ -49,6 +65,22 @@ public class SquirrelControlScript : MonoBehaviour {
             }
         }
     }
+
+	void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.gameObject.CompareTag("Ramp")) {
+			if (Input.GetAxis("Horizontal") > 0) {
+				transform.eulerAngles = new Vector3(0, 0, collision.transform.eulerAngles.z);
+			} else if (Input.GetAxis("Horizontal") < 0) {
+				transform.eulerAngles = new Vector3(0, 0, -collision.transform.eulerAngles.z);
+			}
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D collision) {
+		if (collision.gameObject.CompareTag ("Ramp")) {
+			transform.eulerAngles = Vector3.zero;
+		}
+	}
 
     public void OnTriggerStay2D(Collider2D other)
     {
@@ -84,5 +116,9 @@ public class SquirrelControlScript : MonoBehaviour {
         if (other.gameObject.name.Contains("Player")) {
             other.gameObject.GetComponent<PlayerController>().targetAnimal = gameObject;
         }
+
+//		void OnCollisionEnter2D(Collision2D) {
+//			
+//		}
     }
 }
