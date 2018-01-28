@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 9b2cfae246de0497fb81b77ee903d049
+timeCreated: 1517113552
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Back
+    100004: Bone
+    100006: Bone_001
+    100008: Bone_015
+    100010: Bone_016
+    100012: Foot_L
+    100014: Foot_R
+    100016: Head
+    100018: Lower-Leg_L
+    100020: Lower-Leg_R
+    100022: //RootNode
+    100024: Plane
+    100026: Tail
+    100028: Talon1_L
+    100030: Talon1_R
+    100032: Talon2_L
+    100034: Talon2_R
+    100036: Talon3_L
+    100038: Talon3_R
+    100040: Talon_1_Toe_L
+    100042: Talon_1_Toe_R
+    100044: Talon_2_Toe_L
+    100046: Talon_2_Toe_R
+    100048: Talon_3__Toe_L
+    100050: Talon_3__Toe_R
+    100052: Upper_Leg_L
+    100054: Upper_Leg_R
+    100056: Wing1_L
+    100058: Wing1_L_001
+    100060: Wing1_R
+    100062: Wing1_R_001
+    100064: Wing2_L
+    100066: Wing2_R
+    100068: Wing3_L
+    100070: Wing3_R
+    100072: Wing4_L
+    100074: Wing4_R
+    400000: Armature
+    400002: Back
+    400004: Bone
+    400006: Bone_001
+    400008: Bone_015
+    400010: Bone_016
+    400012: Foot_L
+    400014: Foot_R
+    400016: Head
+    400018: Lower-Leg_L
+    400020: Lower-Leg_R
+    400022: //RootNode
+    400024: Plane
+    400026: Tail
+    400028: Talon1_L
+    400030: Talon1_R
+    400032: Talon2_L
+    400034: Talon2_R
+    400036: Talon3_L
+    400038: Talon3_R
+    400040: Talon_1_Toe_L
+    400042: Talon_1_Toe_R
+    400044: Talon_2_Toe_L
+    400046: Talon_2_Toe_R
+    400048: Talon_3__Toe_L
+    400050: Talon_3__Toe_R
+    400052: Upper_Leg_L
+    400054: Upper_Leg_R
+    400056: Wing1_L
+    400058: Wing1_L_001
+    400060: Wing1_R
+    400062: Wing1_R_001
+    400064: Wing2_L
+    400066: Wing2_R
+    400068: Wing3_L
+    400070: Wing3_R
+    400072: Wing4_L
+    400074: Wing4_R
+    2100000: White_Face
+    2100002: Material
+    2100004: Outline
+    4300000: Plane
+    7400000: Default Take
+    7400002: Glide_Cycle
+    7400004: Hop
+    7400006: Idle
+    9500000: //RootNode
+    13700000: Plane
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
