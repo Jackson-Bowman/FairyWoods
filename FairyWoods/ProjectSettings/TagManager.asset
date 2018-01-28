@@ -9,6 +9,8 @@ TagManager:
   - Water
   - Spawn Point
   - Fish Spawn
+  - Mother tree
+  - Scene Loader
   layers:
   - Default
   - TransparentFX

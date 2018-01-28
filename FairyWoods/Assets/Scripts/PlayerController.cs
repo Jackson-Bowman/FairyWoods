@@ -214,6 +214,10 @@ public class PlayerController : MonoBehaviour
 				transform.position = spawn.transform.position;
 			}
 		}
+		if (collision.gameObject.CompareTag("Mother tree")) {
+			GameObject sceneloader = GameObject.FindGameObjectWithTag ("Scene Loader");
+			sceneloader.GetComponent<SceneLoader> ().LoadImmediate ();
+		}
     }
 
 	void OnTriggerEnter2d(Collider2D collider) {
