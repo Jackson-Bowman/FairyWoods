@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
                 if (possesedAnimal.GetComponent<FishBehavior>())
                 {
                     //possesedAnimal.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                    possesedAnimal.GetComponent<Rigidbody2D>().gravityScale = 1;
+                    //possesedAnimal.GetComponent<Rigidbody2D>().gravityScale = 1;
                     possesedAnimal.GetComponent<FishBehavior>().possessed = false;
                     possesedAnimal.transform.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>().material = defaultMat;
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
