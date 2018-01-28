@@ -208,11 +208,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-//        if (collision.gameObject.name.Contains("Water"))
-//        {
-//            Physics2D.IgnoreCollision(GetComponents<CircleCollider2D>()[1], collision);
-//            rb.AddForce(new Vector2(0, -(Mathf.Abs(transform.position.y) - 4f) * Physics2D.gravity.y));
-//        }
 		if (collision.gameObject.CompareTag("Water")) {
 			GameObject spawn = GameObject.FindGameObjectWithTag ("Spawn Point");
 			if (spawn != null) {
