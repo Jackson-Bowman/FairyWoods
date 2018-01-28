@@ -86,11 +86,13 @@ public class SquirrelControlScript : MonoBehaviour {
     {
         if (possessed)
         {
-            if (other.gameObject.name.Contains("Tree")) {
+            if (other.gameObject.name.Contains("Tree"))
+            {
                 Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), other);
             }
             if (other.gameObject.name.Contains("Tree") && Input.GetKeyDown(KeyCode.Space))
             {
+                Debug.Log("Boop");
                 if (currentTree == null)
                 {
                     currentTree = other.gameObject;
