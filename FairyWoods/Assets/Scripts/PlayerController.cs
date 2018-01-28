@@ -3,42 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
-	public float speed;
-	private Rigidbody2D rb;
-	private Animator anim;
-	public string mode;
+    public float speed;
+    private Rigidbody2D rb;
+    private Animator anim;
+    public string mode;
     public GameObject targetAnimal, possesedAnimal;
-	private GameObject[] animals;
+    private GameObject[] animals;
     public bool paused;
     public GameObject pauseUI;
 
-	void Start() {
+    void Start()
+    {
         paused = false;
-		rb = GetComponent<Rigidbody2D> ();
-		animals = GameObject.FindGameObjectsWithTag ("Animal");
-		foreach (GameObject animal in animals) {
-			Physics2D.IgnoreCollision (GetComponent<Collider2D> (), animal.GetComponent<Collider2D>());
-		}
-	}
+        rb = GetComponent<Rigidbody2D>();
+        animals = GameObject.FindGameObjectsWithTag("Animal");
+        foreach (GameObject animal in animals)
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), animal.GetComponent<Collider2D>());
+        }
+    }
 
-	void FixedUpdate() {
-		if (mode == "fairy") {
-			FairyUpdate ();
-		}
-	}
+    void FixedUpdate()
+    {
+        if (mode == "fairy")
+        {
+            FairyUpdate();
+        }
+    }
 
-	void FairyUpdate() {
+    void FairyUpdate()
+    {
         Debug.Log(paused);
-        if (paused) {
+        if (paused)
+        {
             pauseUI.SetActive(true);
         }
         else
         {
             pauseUI.SetActive(false);
         }
-        if (Time.timeScale == 1 && pauseUI.activeSelf) {
+        if (Time.timeScale == 1 && pauseUI.activeSelf)
+        {
             paused = false;
             pauseUI.SetActive(false);
         }
@@ -59,13 +67,16 @@ public class PlayerController : MonoBehaviour {
                 Time.timeScale = 0;
             }
         }
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             if (targetAnimal != null)
             {
                 if (targetAnimal.GetComponent<SquirrelControlScript>())
                 {
-                    if (possesedAnimal != null) {
-                        if (possesedAnimal.GetComponent<SquirrelControlScript>()) {
+                    if (possesedAnimal != null)
+                    {
+                        if (possesedAnimal.GetComponent<SquirrelControlScript>())
+                        {
                             possesedAnimal.GetComponent<SquirrelControlScript>().possessed = false;
                         }
                         if (possesedAnimal.GetComponent<OwlControlScript>())
@@ -136,7 +147,8 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (possesedAnimal != null) {
+            if (possesedAnimal != null)
+            {
                 if (possesedAnimal.GetComponent<SquirrelControlScript>())
                 {
                     possesedAnimal.GetComponent<SquirrelControlScript>().possessed = false;
