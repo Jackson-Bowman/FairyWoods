@@ -142,13 +142,15 @@ public class SquirrelControlScript : MonoBehaviour {
 			}
 		}
 		if (other.gameObject.name.Contains ("Player")) {
-			other.gameObject.GetComponent<PlayerController> ().targetAnimal = gameObject;
-		}
+			other.transform.GetChild(0).gameObject.GetComponent<PlayerController> ().targetAnimal = gameObject;
+            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().highlightedMat;
+        }
 	}
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.name.Contains("Player")) {
-            other.gameObject.GetComponent<PlayerController>().targetAnimal = null;
+            other.transform.GetChild(0).gameObject.GetComponent<PlayerController>().targetAnimal = null;
+            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().defaultMat;
         }
     }
 }

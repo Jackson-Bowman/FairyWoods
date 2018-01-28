@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private GameObject[] animals;
     public bool paused;
     public GameObject pauseUI;
+    public Material highlightedMat, possessedMat, defaultMat;
 
     void Start()
     {

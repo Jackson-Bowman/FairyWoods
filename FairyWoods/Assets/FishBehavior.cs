@@ -6,7 +6,6 @@ public class FishBehavior : MonoBehaviour {
 
 	public float speed;
 	public int turnFrame;
-	private float currentFrame;
 	private Vector3 direction;
     public bool bobDir = true;
     public float high, low;
@@ -16,7 +15,6 @@ public class FishBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         possessed = false;
-		currentFrame = 0;
 		direction = Vector3.left;
 		moveFrame = 0;
 
@@ -24,24 +22,6 @@ public class FishBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        /*
-        if (bobDir) {
-            transform.position = new Vector2(transform.position.x, Mathf.Lerp(low, high, currentFrame));
-            currentFrame += 0.033f;
-            if (currentFrame >= 1) {
-                bobDir = false;
-            }
-        }
-        else
-        {
-            transform.position = new Vector2(transform.position.x, Mathf.Lerp(low, high, currentFrame));
-            currentFrame -= 0.033f;
-            if (currentFrame <= 0)
-            {
-                bobDir = true;
-            }
-        }*/
-
         if (possessed) {
             if (transform.position.y >= 2.4)
             {
@@ -93,14 +73,16 @@ public class FishBehavior : MonoBehaviour {
         }
         if (other.gameObject.name.Contains("Player"))
         {
-            other.gameObject.GetComponent<PlayerController>().targetAnimal = gameObject;
+            other.transform.GetChild(0).gameObject.GetComponent<PlayerController>().targetAnimal = gameObject;
+            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().highlightedMat;
         }
     }
     public void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.name.Contains("Player"))
         {
-            other.gameObject.GetComponent<PlayerController>().targetAnimal = null;
+            other.transform.GetChild(0).gameObject.GetComponent<PlayerController>().targetAnimal = null;
+            GetComponent<SkinnedMeshRenderer>().material = other.gameObject.GetComponent<PlayerController>().defaultMat;
         }
     }
 }
