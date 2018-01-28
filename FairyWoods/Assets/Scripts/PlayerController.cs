@@ -189,6 +189,11 @@ public class PlayerController : MonoBehaviour
                     transform.position = possesedAnimal.transform.position - new Vector3(1, -1, 0);
                     rb.isKinematic = false;
                     rb.AddForce(new Vector2(-50, 300));
+					GameObject spawn = GameObject.FindGameObjectWithTag ("Fish Spawn");
+					if (spawn != null) {
+						possesedAnimal.transform.position = spawn.transform.position;
+					}
+					possesedAnimal.GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
                 }
                 possesedAnimal = null;
             }

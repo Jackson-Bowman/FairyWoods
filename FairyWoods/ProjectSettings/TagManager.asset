@@ -8,6 +8,7 @@ TagManager:
   - Ramp
   - Water
   - Spawn Point
+  - Fish Spawn
   layers:
   - Default
   - TransparentFX
