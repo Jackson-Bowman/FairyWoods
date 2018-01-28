@@ -118,9 +118,9 @@ public class SquirrelControlScript : MonoBehaviour {
     public void OnTriggerStay2D(Collider2D other)
 	{
 		if (possessed) {
-			if (other.gameObject.name.Contains ("Tree")) {
-				Physics2D.IgnoreCollision (GetComponent<CircleCollider2D> (), other);
-			}
+//			if (other.gameObject.name.Contains ("Tree")) {
+//				Physics2D.IgnoreCollision (GetComponent<Collider2D> (), other);
+//			}
 			if (other.gameObject.name.Contains ("Tree") && Input.GetKeyUp (KeyCode.Space)) {
 				if (currentTree == null) {
 					currentTree = other.gameObject;
