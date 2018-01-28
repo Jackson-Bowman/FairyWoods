@@ -31,9 +31,11 @@ public class FishBehavior : MonoBehaviour {
             Camera.main.transform.position = transform.position - new Vector3(0, 0, 10);
             if (Input.GetKey(KeyCode.A)) {
 				transform.Translate (Vector3.left * speed * Time.deltaTime);
+				GameObject.Find("Fish").transform.eulerAngles = new Vector3(0, 90, 0);
             }
             if (Input.GetKey(KeyCode.D))
             {
+				GameObject.Find("Fish").transform.eulerAngles = new Vector3(0, -90, 0);
 				transform.Translate (Vector3.right * speed * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.W))
