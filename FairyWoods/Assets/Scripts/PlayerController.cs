@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -177,5 +178,11 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Continue");
         paused = false;
         pauseUI.SetActive(false);
+    }
+
+    public void Exit()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Title Screen");
     }
 }
