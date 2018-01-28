@@ -9,11 +9,16 @@ public class SquirrelControlScript : MonoBehaviour {
 	private Animator anim;
 	public float speed;
 	private Rigidbody2D rb;
+	private bool jumping;
+	private bool climbing;
+
 	// Use this for initialization
 	void Start () {
         currentTree = null;
 		anim = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody2D> ();
+		jumping = false;
+		climbing = false;
 	}
 	
 	// Update is called once per frame
@@ -22,7 +27,7 @@ public class SquirrelControlScript : MonoBehaviour {
         {
             Camera.main.transform.position = transform.position - new Vector3(0, 0, 10);
             FindObjectOfType<PlayerController>().possesedAnimal = gameObject;
-            if (currentTree == null)
+			if (!climbing)
             {
 				rb.gravityScale = 1;
                 if (Input.GetKey(KeyCode.A))
@@ -36,16 +41,28 @@ public class SquirrelControlScript : MonoBehaviour {
                 }
                 if (Input.GetKeyDown(KeyCode.W))
                 {
-					rb.AddForce(new Vector2(0, 400));
+					if (!jumping) {
+						rb.AddForce(new Vector2(0, 400));
+						jumping = true;
+					}
+
                 }
 				if (Input.GetAxis ("Horizontal") > 0) {
 					
 					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, -90, 0);
-					anim.Play ("Run_Cycle");
+					if (jumping) {
+						anim.Play ("Jump");
+					} else {
+						anim.Play ("Run_Cycle");
+					}
 				} else if (Input.GetAxis ("Horizontal") < 0) {
 
 					transform.Find ("Squirrel_Rig").transform.eulerAngles = new Vector3 (-90, 90, 0);
-					anim.Play ("Run_Cycle");
+					if (jumping) {
+						anim.Play ("Jump");
+					} else {
+						anim.Play ("Run_Cycle");
+					}
 				} else {
 					anim.Play ("Wait");
 				}
@@ -62,6 +79,9 @@ public class SquirrelControlScript : MonoBehaviour {
                     transform.Translate(new Vector3(0, -0.1f, 0));
                 }
                 transform.position = new Vector2(currentTree.transform.position.x, transform.position.y);
+				if (Input.GetKeyDown(KeyCode.Space)) {
+					climbing = false;
+				}
             }
         }
     }
@@ -74,6 +94,7 @@ public class SquirrelControlScript : MonoBehaviour {
 				transform.eulerAngles = new Vector3(0, 0, -collision.transform.eulerAngles.z);
 			}
 		}
+		jumping = false;
 	}
 
 	void OnCollisionExit2D(Collision2D collision) {
@@ -83,44 +104,32 @@ public class SquirrelControlScript : MonoBehaviour {
 	}
 
     public void OnTriggerStay2D(Collider2D other)
-    {
-        if (possessed)
-        {
-            if (other.gameObject.name.Contains("Tree"))
-            {
-                Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), other);
-            }
-            if (other.gameObject.name.Contains("Tree") && Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("Boop");
-                if (currentTree == null)
-                {
-                    currentTree = other.gameObject;
-                }
-                else
-                {
-                    currentTree = null;
-                }
-            }
-            if (other.gameObject.name.Contains("Owl") && other.gameObject.GetComponent<OwlControlScript>())
-            {
-                FindObjectOfType<PlayerController>().targetAnimal = other.gameObject;
-            }
-            if (other.gameObject.name.Contains("Squirrel") && other.gameObject.GetComponent<SquirrelControlScript>() && other.gameObject != this.gameObject)
-            {
-                FindObjectOfType<PlayerController>().targetAnimal = other.gameObject;
-            }
-            if (other.gameObject.name.Contains("Fish") && other.gameObject.GetComponent<FishBehavior>())
-            {
-                FindObjectOfType<PlayerController>().targetAnimal = other.gameObject;
-            }
-        }
-        if (other.gameObject.name.Contains("Player")) {
-            other.gameObject.GetComponent<PlayerController>().targetAnimal = gameObject;
-        }
-
-//		void OnCollisionEnter2D(Collision2D) {
-//			
-//		}
-    }
+	{
+		if (possessed) {
+			if (other.gameObject.name.Contains ("Tree")) {
+				Physics2D.IgnoreCollision (GetComponent<CircleCollider2D> (), other);
+			}
+			if (other.gameObject.name.Contains ("Tree") && Input.GetKeyUp (KeyCode.Space)) {
+				if (currentTree == null) {
+					currentTree = other.gameObject;
+					climbing = true;
+					rb.velocity = Vector2.zero;
+				} else {
+					currentTree = null;
+				}
+			}
+			if (other.gameObject.name.Contains ("Owl") && other.gameObject.GetComponent<OwlControlScript> ()) {
+				FindObjectOfType<PlayerController> ().targetAnimal = other.gameObject;
+			}
+			if (other.gameObject.name.Contains ("Squirrel") && other.gameObject.GetComponent<SquirrelControlScript> () && other.gameObject != this.gameObject) {
+				FindObjectOfType<PlayerController> ().targetAnimal = other.gameObject;
+			}
+			if (other.gameObject.name.Contains ("Fish") && other.gameObject.GetComponent<FishBehavior> ()) {
+				FindObjectOfType<PlayerController> ().targetAnimal = other.gameObject;
+			}
+		}
+		if (other.gameObject.name.Contains ("Player")) {
+			other.gameObject.GetComponent<PlayerController> ().targetAnimal = gameObject;
+		}
+	}
 }
